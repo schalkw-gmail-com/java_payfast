@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: PayFast Integration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script>
+            function showRandomNumber(){
+                document.getElementById("m_payment_id").value = Math.floor(Math.random(50,160) * 105);
+            }
+    </script>
+</head>
+
+<body onload="showRandomNumber();">
+
+    <h2>Pay me using Java and Spring</h2>
+
+    <p>Get your API call here <a href="/api/">here</a></p>
+
+    <form action="https://transaction.pf.schalk/eng/process" method="post" id="paymentForm">
+        <input type="hidden" name="merchant_id" value="10000102">
+        <input type="hidden" name="merchant_key" value="in42ay4k4hxof">
+
+        <input name="return_url" type="hidden" value="http://localhost:8080/successful">
+        <input name="cancel_url" type="hidden" value="http://localhost:8080/cancelUrl">
+        <input name="notify_url" type="hidden" value="http://localhost:8080/notifyUrl">
+
+        <input type="hidden" name="name_first" value="test">
+        <input type="hidden" name="name_last" value="test">
+        <input type="hidden" name="email_address" value="test123@test.com">
+        <input type="hidden" name="cell_number" value="081 234 5678">
+        <input type="hidden" name="payment_method">
+        <input type="hidden" name="m_payment_id" id="m_payment_id" value="37142">
+        Amount: <input type="text" name="amount" value="49">
+        <input type="hidden" name="item_name" value="Item Name">
+        <input type="hidden" name="item_description" value="Item Description">
+        <input type="hidden" name="notify_method" value="HTTP_POST">
+        <input type="hidden" name="signature" value="">
+        <input type="hidden" name="passphrase" value="125469">
+
+        <br> <input type="submit">
+
+    </form>
+</body>
+</html>
